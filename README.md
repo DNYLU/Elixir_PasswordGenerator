@@ -1,22 +1,32 @@
-# PasswordGenerator
+# Password Generator
 
-**TODO: Add description**
+A module that generates random passwords based on given options. The main function of the module is `generate(options)` which takes an options map as input.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `password_generator` to your list of dependencies in `mix.exs`:
+## Usage
 
 ```elixir
-def deps do
-  [
-    {:password_generator, "~> 0.1.0"}
-  ]
-end
-```
+options = %{
+  "length" => "10",
+  "numbers" => "true",
+  "uppercase" => "true",
+  "symbols" => "true"
+}
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/password_generator>.
+{:ok, password} = PasswordGenerator.generate(options)
+IO.puts("Generated password: #{password}")
 
-# Elixir_PasswordGenerator
+Options
+The available options for generating passwords are:
+
+* "length": The desired length of the password.
+* "numbers": Include numbers in the password.
+* "uppercase": Include uppercase letters in the password.
+* "symbols": Include symbols in the password.
+
+Example of using options:
+options = %{
+  "length" => "12",
+  "numbers" => "true",
+  "uppercase" => "false",
+  "symbols" => "true"
+}
